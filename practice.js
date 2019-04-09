@@ -28,6 +28,9 @@
 */
 
 // Code Here 
+var first = function(arr, cb){
+  cb(arr[0])
+}
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -56,6 +59,9 @@ last(names, function(lastName){
 });
 // Do not edit the code above.
 
+function last(arr, cb){
+  cb(arr[arr.length - 1])
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -72,7 +78,9 @@ multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
 });
 // Do not edit the code above.
-
+function multiply(num1, num2, cb){
+  cb(num1 * num2)
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -96,7 +104,12 @@ contains(names, 'Colt', function(result){
 });
 // Do not edit the code above.
 
-
+function contains(arr, name1, cb){
+  for(var i=0;i<arr.length; i++){
+    if (arr[i]=== name1){cb(true)}
+    else cb(false)
+  }
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -112,6 +125,18 @@ uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
 // Do not edit the code above.
+function uniq(arr, cb){
+  for(var i=0;i<arr.length; i++){
+    for(var j=arr.length-1;j>=0;j--){
+      if (arr[i] === arr[j]){
+        arr.splice(j, 1)
+        i++
+      }
+    }
+  }
+  cb(arr)
+}
+
 
 
 
@@ -130,7 +155,11 @@ each(names, function(item, indice){
 });
 // Do not edit the code above.
 
-
+function each (arr, cb){
+  for(let i=0;i<arr.length;i++){
+    cb(arr[i], i)
+  }
+}
 
 ////////// PROBLEM 7 //////////
 
@@ -166,4 +195,4 @@ var users = [
 getUserById(users, '16t', function(user){
   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
 });
-// Do not edit the code above.
+Do not edit the code above.
